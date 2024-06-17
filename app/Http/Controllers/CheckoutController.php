@@ -30,7 +30,7 @@ class CheckoutController extends Controller
 
         try {
             $charge = Charge::create([
-                'amount' => IntVal($page->price), // amount in dollars
+                'amount' => IntVal($page->price),
                 'currency' => 'usd',
                 'description' => $page->description,
                 'source' => $request->stripeToken,
@@ -47,14 +47,13 @@ class CheckoutController extends Controller
                 ]);
             }
 
-            // Payment was successful
             return redirect()->route('payment.success');
         } catch (\Exception $ex) {
-            // Payment failed
-            // dd( $ex);
+
             return redirect()->route('payment.failure')->withErrors(['message' => 'Payment failed']);
         }
     }
+
     public function success()
     {
         $page = Page::where("title", "Success")->where("type", "Normal Page")->first();

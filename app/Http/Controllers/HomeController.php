@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Page;
 
 class HomeController extends Controller
@@ -12,10 +11,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     // $this->middleware('auth');
-    // }
 
     /**
      * Show the application dashboard.
@@ -24,8 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pages=Page::all();
+        $pages = Page::all();
 
-        return view('home',compact('pages'));
+        return view('home', compact('pages'));
     }
 }

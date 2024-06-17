@@ -38,10 +38,9 @@ class PageController extends Controller
 
         try {
             $paymentIntent = PaymentIntent::create([
-                'amount' => intVal($page->price), // Convert to cents
+                'amount' => intVal($page->price),
                 'currency' => 'usd',
                 'payment_method' => $request->payment_method,
-                // 'confirm' => true,
                 'automatic_payment_methods' => [
                     'enabled' => true,
                     'allow_redirects' => 'never',
@@ -73,7 +72,7 @@ class PageController extends Controller
         }
 
         try {
-            // Check if paymentIntent was successful
+
             if ($request->status === 'succeeded') {
                 $payment = new PaymentTransactions();
                 $payment->payment_intent_id = $request->paymentIntentId;

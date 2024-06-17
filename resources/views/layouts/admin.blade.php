@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"  style="color: #28eaea;font-weight: bold;font-size: 2rem;">
+                <a class="navbar-brand" href="{{ Auth::user() ? url('/admin') : url('/home') }}"  style="color: #28eaea;font-weight: bold;font-size: 2rem;">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

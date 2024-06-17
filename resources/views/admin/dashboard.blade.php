@@ -17,7 +17,6 @@
                     @endif
 
 
-                    <!-- {{ __('You are logged in!') }} -->
                     <div class="row">
                         <h3>Pages</h3>
                      <div class="col-md-8">
@@ -115,7 +114,7 @@
             type: 'doughnut',
             data: data,
         };
-        // Create and render the chart
+
         const myChart = new Chart(ctx, config);
 
     </script>

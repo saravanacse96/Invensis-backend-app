@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Page;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -22,7 +21,7 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+
         $request->validate([
             'type' => 'required',
             'title' => 'required_if:type,Normal Page',
@@ -46,8 +45,6 @@ class PageController extends Controller
 
     public function edit(Page $page)
     {
-        // dd(basename($page->image));
-        // dd(Storage::exists('app/images/' . basename($page->image)));
         return view('pages.form', compact('page'));
     }
 
@@ -57,7 +54,7 @@ class PageController extends Controller
             'type' => 'required',
             'title' => 'required_if:type,Normal Page',
             'description' => 'required',
-            'image' => 'image', // Not required, but must be an image if provided
+            'image' => 'image',
             'product' => 'required_if:type,Payment Page',
             'price' => ['required_if:type,Payment Page', 'nullable', 'numeric'],
             'currency' => 'required_if:type,Payment Page',
